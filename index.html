@@ -126,61 +126,226 @@
     .footer p { margin: 0; font-size: .83rem; color: var(--muted); }
     .footer a { text-underline-offset: 3px; font-size: .83rem; font-weight: 700; }
 
-    @media (max-width: 730px) {
-      .header-inner { min-height: 76px; width: min(100% - 2rem, 1360px); }
-      .nav { gap: .7rem; }
-      .nav a:not(.nav-cta) { display: none; }
-      .nav .nav-cta { padding: .67rem .8rem; }
+    
+@media (max-width: 730px) {
+  .header-inner {
+    min-height: 76px;
+    width: calc(100% - 2rem);
+    gap: .5rem;
+  }
 
-      /* Stack both complete photos vertically on mobile. */
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-        overflow: hidden;
-      }
-      .hero-photo img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-      }
-      .hero::after {
-        background:
-          linear-gradient(0deg, rgba(0,0,0,.18), transparent 24%),
-          linear-gradient(90deg, rgba(0,0,0,.04), rgba(0,0,0,.04));
-      }
-      /* On mobile, show both complete photos first, then place the headline below them. */
-      .hero-content {
-        position: relative;
-        inset: auto;
-        grid-column: 1;
-        background: #171717;
-        justify-content: center;
-        padding: 1.7rem .7rem 2rem;
-      }
-      .hero-bottom {
-        position: relative;
-        grid-column: 1;
-        bottom: auto;
-        padding: .8rem 1rem;
-        background: #171717;
-      }
-      .hero h1 { font-size: clamp(2.9rem, 10.6vw, 5rem); }
-      .hero-overline { margin-bottom: .9rem; }
-      .hero-tagline { margin-block: 1rem; }
-      .hero h1 .line-one { transform: translateX(-.3em); }
-      .hero h1 .line-two { transform: translateX(-.1em); }
-      .hero h1 .line-three { transform: translateX(.12em); }
-      .hero-tagline { max-width: 26ch; line-height: 1.4; }
-      .service-inner { grid-template-columns: 1fr; gap: 0; padding-block: .8rem; }
-      .service-inner p { padding: .65rem; }
-      .service-inner p + p { border-left: none; border-top: 1px solid rgba(23,23,23,.2); }
-      .contact-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-    }
-    @media (max-width: 360px) {
-      .wordmark-icon { width: 36px; height: 36px; }
-      .wordmark-text { font-size: .67rem; }
-      .wordmark-text strong { font-size: .85rem; }
-      .hero h1 { font-size: 11vw; }
-    }
+  .wordmark {
+    gap: .6rem;
+  }
+
+  .wordmark-icon {
+    width: 43px;
+    height: 43px;
+  }
+
+  .wordmark-text {
+    font-size: .67rem;
+  }
+
+  .wordmark-text strong {
+    font-size: .85rem;
+  }
+
+  .nav {
+    gap: .5rem;
+  }
+
+  .nav a:not(.nav-cta) {
+    display: none;
+  }
+
+  .nav .nav-cta {
+    padding: .7rem .8rem;
+    white-space: nowrap;
+  }
+
+  /* MOBILE HERO: keep both photos side by side */
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    min-height: 390px;
+    overflow: hidden;
+    background: #708da3;
+  }
+
+  .hero-photo {
+    min-width: 0;
+    min-height: 390px;
+    overflow: hidden;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 390px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Dark overlay helps the white text stand out */
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, .18),
+        rgba(0, 0, 0, .48) 50%,
+        rgba(0, 0, 0, .18)
+      ),
+      linear-gradient(
+        0deg,
+        rgba(0, 0, 0, .35),
+        transparent 65%
+      );
+    pointer-events: none;
+  }
+
+  /* Put the headline back over the photographs */
+  .hero-content {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem .5rem 2.5rem;
+    background: transparent;
+    text-align: center;
+  }
+
+  .hero-overline {
+    margin-bottom: .9rem;
+    padding: .35rem .55rem;
+    font-size: .58rem;
+    letter-spacing: .12em;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.25rem, 8.5vw, 3.8rem);
+    line-height: .98;
+    letter-spacing: -.075em;
+  }
+
+  .hero h1 span {
+    white-space: nowrap;
+  }
+
+  .hero h1 .line-one {
+    font-size: .48em;
+    transform: none;
+    margin-bottom: .4em;
+  }
+
+  .hero h1 .line-two,
+  .hero h1 .line-three {
+    transform: none;
+  }
+
+  .hero-tagline {
+    max-width: 25ch;
+    margin: 1rem 0;
+    font-size: .76rem;
+    line-height: 1.4;
+  }
+
+  .hero .button {
+    min-height: 44px;
+    padding: .7rem 1rem;
+    font-size: .82rem;
+  }
+
+  .hero-bottom {
+    position: absolute;
+    z-index: 2;
+    bottom: .7rem;
+    left: 0;
+    padding-inline: .5rem;
+    font-size: .55rem;
+    letter-spacing: .1em;
+  }
+
+  /* Keep the three services compact on mobile */
+  .service-inner {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    padding: .7rem .2rem;
+  }
+
+  .service-inner p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: .35rem .2rem;
+    font-size: .58rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .service-inner p + p {
+    border-top: none;
+    border-left: 1px solid rgba(23, 23, 23, .25);
+  }
+
+  .contact {
+    padding: 2.5rem 1rem;
+  }
+
+  .contact-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .contact h2 {
+    font-size: clamp(1.7rem, 7vw, 2.3rem);
+  }
+
+  .contact .button {
+    white-space: normal;
+  }
+
+  .footer-inner {
+    flex-wrap: wrap;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+  .hero {
+    min-height: 350px;
+  }
+
+  .hero-photo,
+  .hero-photo img {
+    min-height: 350px;
+  }
+
+  .hero h1 {
+    font-size: 8.3vw;
+  }
+
+  .hero-tagline {
+    font-size: .68rem;
+  }
+
+  .service-inner p {
+    font-size: .52rem;
+  }
+}
+    
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .button { transition: none; }
