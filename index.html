@@ -48,13 +48,12 @@
     .nav .nav-cta { background: var(--yellow); padding: .76rem 1.08rem; border-radius: 4px; }
     .nav .nav-cta:hover { background: var(--yellow-deep); text-decoration: none; }
 
-    /* Desktop: two image panels reach the outer edges with the headline centered. */
+    /* Two image panels reach the outermost edges. The headline overlaps their center. */
     .hero { position: relative; isolation: isolate; min-height: clamp(580px, 55vw, 755px); display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; background: #708da3; }
     .hero-photo { min-width: 0; position: relative; overflow: hidden; }
     .hero-photo img { position: absolute; width: 100%; height: 100%; inset: 0; object-fit: cover; }
     .hero-photo:first-child img { object-position: 65% 52%; }
     .hero-photo:nth-child(2) img { object-position: 35% 52%; }
-    .hero-mobile-photo { display: none; }
     .hero::after { content: ""; position: absolute; z-index: 0; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.04), rgba(0,0,0,.56) 35%, rgba(0,0,0,.60) 50%, rgba(0,0,0,.56) 65%, rgba(0,0,0,.04)), linear-gradient(0deg, rgba(0,0,0,.26), transparent 22%); pointer-events: none; }
     .hero-content { position: absolute; z-index: 1; inset: 0; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 0; padding: 2rem 1rem; text-align: center; color: white; }
     .hero-overline { margin: 0 0 1.15rem; padding: .43rem .85rem; background: var(--yellow); color: var(--ink); font-size: clamp(.66rem, 1.05vw, .81rem); font-weight: 900; letter-spacing: .17em; text-transform: uppercase; }
@@ -89,13 +88,11 @@
       .nav { gap: .7rem; }
       .nav a:not(.nav-cta) { display: none; }
       .nav .nav-cta { padding: .67rem .8rem; }
-      /* Mobile: stack the same home photo twice, reversing the lower copy. */
-      .hero { min-height: 0; display: grid; grid-template-columns: 1fr; grid-template-rows: minmax(245px, 52vw) minmax(245px, 52vw); }
-      .hero > .hero-photo { display: none; }
-      .hero-mobile-photo { display: block; min-height: 0; position: relative; overflow: hidden; }
-      .hero-mobile-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 52%; }
-      .hero-mobile-photo.flip img { transform: scaleX(-1); }
-      .hero::after { background: linear-gradient(90deg, rgba(0,0,0,.12), rgba(0,0,0,.28) 45%, rgba(0,0,0,.28) 55%, rgba(0,0,0,.12)), linear-gradient(0deg, rgba(0,0,0,.2), transparent 20%); }
+      /* Reveal the WIDE LOAD signs on both outside edges on small screens. */
+      .hero { min-height: clamp(490px, 130vw, 575px); }
+      .hero-photo:first-child img { object-position: 16% center; }
+      .hero-photo:nth-child(2) img { object-position: 84% center; }
+      .hero::after { background: linear-gradient(90deg, rgba(0,0,0,.04), rgba(0,0,0,.57) 40%, rgba(0,0,0,.57) 60%, rgba(0,0,0,.04)), linear-gradient(0deg, rgba(0,0,0,.2), transparent 20%); }
       .hero h1 { font-size: clamp(2.9rem, 10.6vw, 5rem); }
       .hero-content { justify-content: flex-start; padding: 1.7rem .7rem 4rem; }
       .hero-overline { margin-bottom: .9rem; }
@@ -140,19 +137,12 @@
 
   <main id="main-content">
     <section class="hero" id="home" aria-labelledby="hero-title">
-      <!-- Desktop keeps the existing left/right photos. -->
+      <!-- Keep the two optimized WebP files in the images folder. -->
       <div class="hero-photo">
         <img src="imagestransport-right.webp" alt="Manufactured home on a transport trailer with protective wrap and a yellow WIDE LOAD sign" width="1145" height="1374" fetchpriority="high" decoding="async">
       </div>
       <div class="hero-photo">
         <img src="imagestransport-left.webp" alt="" width="1145" height="1374" decoding="async">
-      </div>
-      <!-- Mobile uses the same existing photo twice, with the lower copy flipped. -->
-      <div class="hero-mobile-photo">
-        <img src="imagestransport-right.webp" alt="Manufactured home on a transport trailer with a yellow WIDE LOAD sign" width="1145" height="1374" fetchpriority="high" decoding="async">
-      </div>
-      <div class="hero-mobile-photo flip">
-        <img src="imagestransport-right.webp" alt="" width="1145" height="1374" decoding="async">
       </div>
       <div class="hero-content">
         <p class="hero-overline">Move with confidence</p>
