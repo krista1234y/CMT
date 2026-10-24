@@ -48,14 +48,57 @@
     .nav .nav-cta { background: var(--yellow); padding: .76rem 1.08rem; border-radius: 4px; }
     .nav .nav-cta:hover { background: var(--yellow-deep); text-decoration: none; }
 
-    /* Two image panels reach the outermost edges. The headline overlaps their center. */
-    .hero { position: relative; isolation: isolate; min-height: clamp(580px, 55vw, 755px); display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; background: #708da3; }
-    .hero-photo { min-width: 0; position: relative; overflow: hidden; }
-    .hero-photo img { position: absolute; width: 100%; height: 100%; inset: 0; object-fit: cover; }
-    .hero-photo:first-child img { object-position: 65% 52%; }
-    .hero-photo:nth-child(2) img { object-position: 35% 52%; }
-    .hero::after { content: ""; position: absolute; z-index: 0; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.04), rgba(0,0,0,.56) 35%, rgba(0,0,0,.60) 50%, rgba(0,0,0,.56) 65%, rgba(0,0,0,.04)), linear-gradient(0deg, rgba(0,0,0,.26), transparent 22%); pointer-events: none; }
-    .hero-content { position: absolute; z-index: 1; inset: 0; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 0; padding: 2rem 1rem; text-align: center; color: white; }
+    /* Hero: show each complete photo, with no cropping on desktop or mobile. */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+      overflow: hidden;
+      background: #708da3;
+    }
+    .hero-photo {
+      min-width: 0;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #708da3;
+    }
+    .hero-photo img {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    /* Darken the center for legible text while keeping the full photos visible. */
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.02), rgba(0,0,0,.48) 35%, rgba(0,0,0,.54) 50%, rgba(0,0,0,.48) 65%, rgba(0,0,0,.02)),
+        linear-gradient(0deg, rgba(0,0,0,.18), transparent 22%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 0;
+      padding: 2rem 1rem;
+      text-align: center;
+      color: white;
+    }
     .hero-overline { margin: 0 0 1.15rem; padding: .43rem .85rem; background: var(--yellow); color: var(--ink); font-size: clamp(.66rem, 1.05vw, .81rem); font-weight: 900; letter-spacing: .17em; text-transform: uppercase; }
     .hero h1 { display: grid; justify-items: center; margin: 0; font-size: clamp(3.2rem, 7.3vw, 7.6rem); font-weight: 950; line-height: .96; letter-spacing: -.075em; text-transform: uppercase; text-shadow: 0 3px 25px rgba(0,0,0,.36); }
     .hero h1 span { display: block; white-space: nowrap; }
@@ -88,13 +131,39 @@
       .nav { gap: .7rem; }
       .nav a:not(.nav-cta) { display: none; }
       .nav .nav-cta { padding: .67rem .8rem; }
-      /* Reveal the WIDE LOAD signs on both outside edges on small screens. */
-      .hero { min-height: clamp(490px, 130vw, 575px); }
-      .hero-photo:first-child img { object-position: 16% center; }
-      .hero-photo:nth-child(2) img { object-position: 84% center; }
-      .hero::after { background: linear-gradient(90deg, rgba(0,0,0,.04), rgba(0,0,0,.57) 40%, rgba(0,0,0,.57) 60%, rgba(0,0,0,.04)), linear-gradient(0deg, rgba(0,0,0,.2), transparent 20%); }
+
+      /* Stack both complete photos vertically on mobile. */
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        overflow: hidden;
+      }
+      .hero-photo img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      .hero::after {
+        background:
+          linear-gradient(0deg, rgba(0,0,0,.18), transparent 24%),
+          linear-gradient(90deg, rgba(0,0,0,.04), rgba(0,0,0,.04));
+      }
+      /* On mobile, show both complete photos first, then place the headline below them. */
+      .hero-content {
+        position: relative;
+        inset: auto;
+        grid-column: 1;
+        background: #171717;
+        justify-content: center;
+        padding: 1.7rem .7rem 2rem;
+      }
+      .hero-bottom {
+        position: relative;
+        grid-column: 1;
+        bottom: auto;
+        padding: .8rem 1rem;
+        background: #171717;
+      }
       .hero h1 { font-size: clamp(2.9rem, 10.6vw, 5rem); }
-      .hero-content { justify-content: flex-start; padding: 1.7rem .7rem 4rem; }
       .hero-overline { margin-bottom: .9rem; }
       .hero-tagline { margin-block: 1rem; }
       .hero h1 .line-one { transform: translateX(-.3em); }
@@ -137,12 +206,12 @@
 
   <main id="main-content">
     <section class="hero" id="home" aria-labelledby="hero-title">
-      <!-- Keep the two optimized WebP files in the images folder. -->
+      <!-- Keep these two WebP files in the images folder beside this index.html. -->
       <div class="hero-photo">
         <img src="imagestransport-right.webp" alt="Manufactured home on a transport trailer with protective wrap and a yellow WIDE LOAD sign" width="1145" height="1374" fetchpriority="high" decoding="async">
       </div>
       <div class="hero-photo">
-        <img src="imagestransport-left.webp" alt="" width="1145" height="1374" decoding="async">
+        <img src="imagestransport-left.webp" alt="Opposite side of a modular home secured on a transport trailer" width="1145" height="1374" decoding="async">
       </div>
       <div class="hero-content">
         <p class="hero-overline">Move with confidence</p>
