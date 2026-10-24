@@ -678,5 +678,93 @@
       <a href="#home">Back to top ↑</a>
     </div>
   </footer>
+  
+(() => {
+  const track = document.querySelector("#carousel-track");
+  const carousel = document.querySelector(".carousel");
+  const prev = document.querySelector(".carousel-prev");
+  const next = document.querySelector(".carousel-next");
+  const dots = document.querySelector(".carousel-dots");
+  const count = document.querySelector(".carousel-count");
+
+  if (!track || !carousel || !prev || !next || !dots || !count) {
+    return;
+  }
+
+  const slides = [...track.querySelectorAll(".carousel-slide")];
+
+  if (!slides.length) return;
+
+  let active = 0;
+  let scrollTimer;
+
+  slides.forEach((slide, index) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "carousel-dot";
+    dot.setAttribute("aria-label", `Go to photo ${index + 1}`);
+
+    dot.addEventListener("click", () => {
+      slides[index].scrollIntoView({
+        behavior: window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches ? "auto" : "smooth",
+        block: "nearest",
+        inline: "start"
+      });
+    });
+
+    dots.appendChild(dot);
+  });
+
+  const allDots = [...dots.querySelectorAll(".carousel-dot")];
+
+  function update() {
+    const position = track.scrollLeft;
+
+    active = slides.reduce((closest, slide, index) => {
+      return Math.abs(slide.offsetLeft - track.offsetLeft - position) <
+        Math.abs(slides[closest].offsetLeft -
+          track.offsetLeft - position) ? index : closest;
+    }, 0);
+
+    count.textContent = `Photo ${active + 1} of ${slides.length}`;
+
+    allDots.forEach((dot, index) => {
+      if (index === active) {
+        dot.setAttribute("aria-current", "true");
+      } else {
+        dot.removeAttribute("aria-current");
+      }
+    });
+
+    prev.disabled = active === 0;
+    next.disabled = active === slides.length - 1;
+  }
+
+  function goTo(index) {
+    slides[Math.max(0, Math.min(index, slides.length - 1))]
+      .scrollIntoView({
+        behavior: window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches ? "auto" : "smooth",
+        block: "nearest",
+        inline: "start"
+      });
+  }
+
+  prev.addEventListener("click", () => goTo(active - 1));
+  next.addEventListener("click", () => goTo(active + 1));
+
+  track.addEventListener("scroll", () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(update, 80);
+  }, { passive: true });
+
+  window.addEventListener("resize", update);
+
+  update();
+})();
+        
 </body>
 </html>
