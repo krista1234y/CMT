@@ -539,6 +539,29 @@
       html { scroll-behavior: auto; }
       .button { transition: none; }
     }
+    
+.more-projects-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ffd43b;
+  color: #222;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: transform 0.2s ease,
+              background-color 0.2s ease;
+}
+
+.more-projects-link:hover {
+  transform: translateY(-3px);
+  background-color: #ffca05;
+}
+
+.more-projects-link:focus-visible {
+  outline: 3px solid #222;
+  outline-offset: 4px;
+}
+    
   </style>
 </head>
 <body>
@@ -560,7 +583,6 @@
 
   <main id="main-content">
     <section class="hero" id="home" aria-labelledby="hero-title">
-      <!-- Keep these two WebP files in the images folder beside this index.html. -->
       <div class="hero-photo">
         <img src="imagestransport-right.webp" alt="Manufactured home on a transport trailer with protective wrap and a yellow WIDE LOAD sign" width="1145" height="1374" fetchpriority="high" decoding="async">
       </div>
@@ -574,6 +596,11 @@
           <span class="line-two">Modular</span>
           <span class="line-three">Transport</span>
         </h1>
+        
+<a href="more-projects.html" class="more-projects-link">
+  See More of Our Work
+</a>
+        
         <p class="hero-tagline">Modular &amp; manufactured home transportation</p>
         <a class="button" href="#contact">Request a Quote <span aria-hidden="true">&nbsp;↗</span></a>
       </div>
