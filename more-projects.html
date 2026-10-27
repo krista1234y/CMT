@@ -372,7 +372,8 @@
     .carousel-media video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position:center;
     }
 
     .carousel-media video {
@@ -426,9 +427,26 @@
       background: var(--white);
     }
 
-    .photo-card .carousel-media {
-      aspect-ratio: 4 / 3;
-    }
+    
+.photo-card .carousel-media {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-card .photo-open {
+  width: 100%;
+  height: 100%;
+}
+.photo-card .photo-open img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+    
 
     .photo-open {
       display: block;
