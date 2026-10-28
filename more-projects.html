@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +11,8 @@
   <link rel="canonical" href="https://ca-modulartransport.com/more-projects.html">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="See More of Our Work | CA Modular Transport">
-  <meta property="og:description" content="Explore more completed modular transport projects through our project photos and videos.">
+  <meta property="og:title" content="Our Work in Action | CA Modular Transport">
+  <meta property="og:description" content="See modular transport projects from the start, through the move, to the finished project.">
   <meta property="og:url" content="https://ca-modulartransport.com/more-projects.html">
 
   <style>
@@ -365,7 +364,7 @@
       position: relative;
       overflow: hidden;
       background: #e8e8e8;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 1 / 1;
     }
 
     .carousel-media img,
@@ -373,11 +372,23 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      object-position:center;
+      object-position: center;
     }
 
     .carousel-media video {
       background: var(--black);
+    }
+
+    .carousel-media .photo-open {
+      position: absolute;
+      inset: 0;
+    }
+
+    .carousel-media .photo-open img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
     }
 
     .media-label {
@@ -427,30 +438,12 @@
       background: var(--white);
     }
 
-    
-.photo-card .carousel-media {
-  aspect-ratio: 4 / 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.photo-card .photo-open {
-  width: 100%;
-  height: 100%;
-}
-.photo-card .photo-open img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-}
-    
 
     .photo-open {
       display: block;
       width: 100%;
+      height: 100%;
       padding: 0;
       border: 0;
       background: transparent;
@@ -679,9 +672,6 @@
         flex-basis: calc((100% - 20px) / 2);
       }
 
-      .video-card .carousel-media {
-        aspect-ratio: 16 / 9;
-      }
     }
 
     @media (max-width: 680px) {
@@ -773,8 +763,8 @@
       <nav class="main-nav" aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/#services">Services</a>
-        <a href="#videos">Project Videos</a>
-        <a href="#photos">Project Photos</a>
+        <a href="#the-start">From the Start</a>
+        <a href="#the-move">To the Move</a>
         <a class="nav-cta" href="/#contact">Contact Us</a>
       </nav>
     </div>
@@ -785,66 +775,62 @@
       <div class="container hero-content">
         <span class="eyebrow">Our Work in Action</span>
 
-        <h1 id="page-title">See More of Our Work</h1>
+        <h1 id="page-title">Our Work in Action</h1>
 
         <p>
-          Explore more completed projects from CA Modular Transport.
-          Browse our project videos and photos to see our work in action.
+          Follow our modular transport projects from the start, through the move,
+          to the finished project.
         </p>
-
-        <div class="hero-actions">
-          <a class="button" href="#photos">Explore Project Photos</a>
-          <a class="button button-light" href="#videos">Watch Our Videos</a>
-        </div>
       </div>
     </section>
 
     <nav class="gallery-jump" aria-label="Project gallery navigation">
       <div class="container gallery-jump-inner">
-        <a href="#videos">▶ Project Videos</a>
-        <a href="#photos">▧ Project Photos</a>
+        <a href="#the-start">From the Start</a>
+        <a href="#the-move">To the Move</a>
+        <a href="#the-finish">To the Finished Project</a>
       </div>
     </nav>
 
-    <!-- =====================================
-         VIDEO CAROUSEL
-         Add videos to /videos/
-    ====================================== -->
-    <section class="section carousel-section" id="videos"
-      aria-labelledby="videos-title">
-
+    <section class="section carousel-section" id="the-start" aria-labelledby="the-start-title">
       <div class="container">
         <header class="section-heading">
-          <span class="eyebrow">Watch Our Work</span>
-          <h2 id="videos-title">Completed Project Videos</h2>
-          <p>
-            Take a closer look at our completed work through videos
-            showcasing modular transport projects.
-          </p>
+          <span class="eyebrow">The Beginning</span>
+          <h2 id="the-start-title">From the Start</h2>
+          <p>A look at the early stages of our modular transport projects.</p>
         </header>
-
-        <div class="carousel" data-carousel="videos"
-          aria-roledescription="carousel"
-          aria-label="Completed project videos">
-
-          <div class="carousel-viewport">
-            <div class="carousel-track">
+        <div class="carousel" data-carousel="the-start" aria-roledescription="carousel" aria-label="From the Start gallery" tabindex="0">
+          <div class="carousel-viewport"><div class="carousel-track">
+              <article class="carousel-slide">
+                <div class="carousel-card photo-card">
+                  <div class="carousel-media">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-start1.webp" data-title="From the Start 01" aria-label="Enlarge photo From the Start 01">
+                      <img src="/images/projects/the-start1.webp" width="1000" height="1000" alt="CA Modular Transport project photo 1 in From the Start" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                  <div class="carousel-caption"><h3>From the Start 01</h3></div>
+                </div>
+              </article>
 
               <article class="carousel-slide">
-                <div class="carousel-card video-card">
+                <div class="carousel-card photo-card">
                   <div class="carousel-media">
-                    <span class="media-label">PROJECT VIDEO</span>
-                    <video controls playsinline preload="none"
-                      width="1280" height="720"
-                      poster="/images/projects/video-01.webp">
-                      <source src="/videos/project-01.mp4"
-                        type="video/mp4">
-                      Your browser does not support HTML video.
-                    </video>
+                    <button class="photo-open" type="button" data-full="/images/projects/the-start2.webp" data-title="From the Start 02" aria-label="Enlarge photo From the Start 02">
+                      <img src="/images/projects/the-start2.webp" width="1000" height="1000" alt="CA Modular Transport project photo 2 in From the Start" loading="lazy" decoding="async">
+                    </button>
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Completed Project 01</h3>
+                  <div class="carousel-caption"><h3>From the Start 02</h3></div>
+                </div>
+              </article>
+
+              <article class="carousel-slide">
+                <div class="carousel-card photo-card">
+                  <div class="carousel-media">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-start3.webp" data-title="From the Start 03" aria-label="Enlarge photo From the Start 03">
+                      <img src="/images/projects/the-start3.webp" width="1000" height="1000" alt="CA Modular Transport project photo 3 in From the Start" loading="lazy" decoding="async">
+                    </button>
                   </div>
+                  <div class="carousel-caption"><h3>From the Start 03</h3></div>
                 </div>
               </article>
 
@@ -852,266 +838,224 @@
                 <div class="carousel-card video-card">
                   <div class="carousel-media">
                     <span class="media-label">PROJECT VIDEO</span>
-                    <video controls playsinline preload="none"
-                      width="1280" height="720"
-                      poster="/images/projects/video-02.webp">
-                      <source src="/videos/project-02.mp4"
-                        type="video/mp4">
+                    <video controls muted playsinline loop preload="metadata" width="720" height="720" aria-label="From the Start 04">
+                      <source src="/videos/the-start04.mp4" type="video/mp4">
                       Your browser does not support HTML video.
                     </video>
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Completed Project 02</h>
-                  </div>
+                  <div class="carousel-caption"><h3>From the Start 04</h3></div>
                 </div>
               </article>
-
-              <article class="carousel-slide">
-                <div class="carousel-card video-card">
-                  <div class="carousel-media">
-                    <span class="media-label">PROJECT VIDEO</span>
-                    <video controls playsinline preload="none"
-                      width="1280" height="720"
-                      poster="/images/projects/video-03.webp">
-                      <source src="/videos/project-03.mp4"
-                        type="video/mp4">
-                      Your browser does not support HTML video.
-                    </video>
-                  </div>
-                  <div class="carousel-caption">
-                    <h3>Completed Project 03</h3>
-                  </div>
-                </div>
-              </article>
-
-            </div>
-          </div>
-
+          </div></div>
           <div class="carousel-controls">
-            <button class="carousel-arrow" type="button"
-              data-prev aria-label="Previous project videos">
-              &#8592;
-            </button>
-
-            <div class="carousel-dots" data-dots
-              aria-label="Choose a video slide"></div>
-
-            <span class="carousel-status" data-status
-              aria-live="polite">1 / 3</span>
-
-            <button class="carousel-arrow" type="button"
-              data-next aria-label="Next project videos">
-              &#8594;
-            </button>
+            <button class="carousel-arrow" type="button" data-prev aria-label="Previous From the Start items">&#8592;</button>
+            <div class="carousel-dots" data-dots aria-label="Choose a From the Start slide"></div>
+            <span class="carousel-status" data-status aria-live="polite">1 / 4</span>
+            <button class="carousel-arrow" type="button" data-next aria-label="Next From the Start items">&#8594;</button>
           </div>
-
-          <p class="swipe-hint">
-            Swipe to explore more videos, or use the arrows.
-          </p>
+          <p class="swipe-hint">Swipe to explore the gallery, or use the arrows.</p>
         </div>
       </div>
     </section>
 
-    <!-- =====================================
-         PHOTO CAROUSEL
-         Add photos to /images/projects/
-    ====================================== -->
-    <section class="section carousel-section" id="photos"
-      aria-labelledby="photos-title">
-
+    <section class="section carousel-section" id="the-move" aria-labelledby="the-move-title">
       <div class="container">
         <header class="section-heading">
-          <span class="eyebrow">Project Gallery</span>
-          <h2 id="photos-title">More Completed Projects</h2>
-          <p>
-            Explore additional photos of our completed work.
-            Select any photo to view it in a larger format.
-          </p>
+          <span class="eyebrow">On the Road</span>
+          <h2 id="the-move-title">To the Move</h2>
+          <p>See the transport process in action through photos and video.</p>
         </header>
-
-        <div class="carousel" data-carousel="photos"
-          aria-roledescription="carousel"
-          aria-label="Completed project photos">
-
-          <div class="carousel-viewport">
-            <div class="carousel-track">
-
+        <div class="carousel" data-carousel="the-move" aria-roledescription="carousel" aria-label="To the Move gallery" tabindex="0">
+          <div class="carousel-viewport"><div class="carousel-track">
               <article class="carousel-slide">
                 <div class="carousel-card photo-card">
                   <div class="carousel-media">
-                    <button class="photo-open" type="button"
-                      data-full="/images/projects/work-01.webp"
-                      data-title="Completed Project 01"
-                      aria-label="Enlarge photo of Completed Project 01">
-                      <img src="/images/projects/work-01.webp"
-                        width="1200" height="900"
-                        alt="Completed modular transport project, photo 1"
-                        loading="lazy" decoding="async">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-move1.webp" data-title="To the Move 01" aria-label="Enlarge photo To the Move 01">
+                      <img src="/images/projects/the-move1.webp" width="1000" height="1000" alt="CA Modular Transport project photo 1 in To the Move" loading="lazy" decoding="async">
                     </button>
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Completed Project 01</h3>
-                  </div>
+                  <div class="carousel-caption"><h3>To the Move 01</h3></div>
                 </div>
               </article>
 
               <article class="carousel-slide">
                 <div class="carousel-card photo-card">
                   <div class="carousel-media">
-                    <button class="photo-open" type="button"
-                      data-full="/images/projects/work-02.webp"
-                      data-title="Completed Project 02"
-                      aria-label="Enlarge photo of Completed Project 02">
-                      <img src="/images/projects/work-02.webp"
-                        width="1200" height="900"
-                        alt="Completed modular transport project, photo 2"
-                        loading="lazy" decoding="async">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-move2.webp" data-title="To the Move 02" aria-label="Enlarge photo To the Move 02">
+                      <img src="/images/projects/the-move2.webp" width="1000" height="1000" alt="CA Modular Transport project photo 2 in To the Move" loading="lazy" decoding="async">
                     </button>
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Completed Project 02</h3>
-                  </div>
+                  <div class="carousel-caption"><h3>To the Move 02</h3></div>
                 </div>
               </article>
 
               <article class="carousel-slide">
                 <div class="carousel-card photo-card">
                   <div class="carousel-media">
-                    <button class="photo-open" type="button"
-                      data-full="/images/projects/work-03.webp"
-                      data-title="Completed Project 03"
-                      aria-label="Enlarge photo of Completed Project 03">
-                      <img src="/images/projects/work-03.webp"
-                        width="1200" height="900"
-                        alt="Completed modular transport project, photo 3"
-                        loading="lazy" decoding="async">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-move3.webp" data-title="To the Move 03" aria-label="Enlarge photo To the Move 03">
+                      <img src="/images/projects/the-move3.webp" width="1000" height="1000" alt="CA Modular Transport project photo 3 in To the Move" loading="lazy" decoding="async">
                     </button>
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Completed Project 03</h3>
-                  </div>
+                  <div class="carousel-caption"><h3>To the Move 03</h3></div>
                 </div>
               </article>
 
               <article class="carousel-slide">
                 <div class="carousel-card photo-card">
                   <div class="carousel-media">
-                    <button class="photo-open" type="button"
-                      data-full="/images/projects/work-04.webp"
-                      data-title="Completed Project 04"
-                      aria-label="Enlarge photo of Completed Project 04">
-                      <img src="/images/projects/work-04.webp"
-                        width="1200" height="900"
-                        alt="Completed modular transport project, photo 4"
-                        loading="lazy" decoding="async">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-move4.webp" data-title="To the Move 04" aria-label="Enlarge photo To the Move 04">
+                      <img src="/images/projects/the-move4.webp" width="1000" height="1000" alt="CA Modular Transport project photo 4 in To the Move" loading="lazy" decoding="async">
                     </button>
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Completed Project 04</h3>
-                  </div>
+                  <div class="carousel-caption"><h3>To the Move 04</h3></div>
                 </div>
               </article>
 
               <article class="carousel-slide">
                 <div class="carousel-card photo-card">
                   <div class="carousel-media">
-                    <button class="photo-open" type="button"
-                      data-full="/images/projects/work-05.webp"
-                      data-title="Completed Project 05"
-                      aria-label="Enlarge photo of Completed Project 05">
-                      <img src="/images/projects/work-05.webp"
-                        width="1200" height="900"
-                        alt="Completed modular transport project, photo 5"
-                        loading="lazy" decoding="async">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-move5.webp" data-title="To the Move 05" aria-label="Enlarge photo To the Move 05">
+                      <img src="/images/projects/the-move5.webp" width="1000" height="1000" alt="CA Modular Transport project photo 5 in To the Move" loading="lazy" decoding="async">
                     </button>
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Completed Project 05</h3>
-                  </div>
+                  <div class="carousel-caption"><h3>To the Move 05</h3></div>
                 </div>
               </article>
 
               <article class="carousel-slide">
                 <div class="carousel-card photo-card">
                   <div class="carousel-media">
-                    <button class="photo-open" type="button"
-                      data-full="/images/projects/work-06.webp"
-                      data-title="Completed Project 06"
-                      aria-label="Enlarge photo of Completed Project 06">
-                      <img src="/images/projects/work-06.webp"
-                        width="1200" height="900"
-                        alt="Completed modular transport project, photo 6"
-                        loading="lazy" decoding="async">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-move6.webp" data-title="To the Move 06" aria-label="Enlarge photo To the Move 06">
+                      <img src="/images/projects/the-move6.webp" width="1000" height="1000" alt="CA Modular Transport project photo 6 in To the Move" loading="lazy" decoding="async">
                     </button>
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Completed Project 06</h3>
-                  </div>
+                  <div class="carousel-caption"><h3>To the Move 06</h3></div>
                 </div>
               </article>
 
               <article class="carousel-slide">
-                <div class="carousel-card photo-card">
+                <div class="carousel-card video-card">
                   <div class="carousel-media">
-                    <button class="photo-open" type="button"
-                      data-full="/images/projects/work-07.webp"
-                      data-title="Completed Project 07"
-                      aria-label="Enlarge photo of Completed Project 07">
-                      <img src="/images/projects/work-07.webp"
-                        width="1200" height="900"
-                        alt="Completed modular transport project, photo 7"
-                        loading="lazy" decoding="async">
-                    </button>
+                    <span class="media-label">PROJECT VIDEO</span>
+                    <video controls muted playsinline loop preload="metadata" width="720" height="720" aria-label="To the Move 07">
+                      <source src="/videos/the-move07.mp4" type="video/mp4">
+                      Your browser does not support HTML video.
+                    </video>
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Completed Project 07</h3>
-                  </div>
+                  <div class="carousel-caption"><h3>To the Move 07</h3></div>
                 </div>
               </article>
 
               <article class="carousel-slide">
-                <div class="carousel-card photo-card">
+                <div class="carousel-card video-card">
                   <div class="carousel-media">
-                    <button class="photo-open" type="button"
-                      data-full="/images/projects/work-08.webp"
-                      data-title="Completed Project 08"
-                      aria-label="Enlarge photo of Completed Project 08">
-                      <img src="/images/projects/work-08.webp"
-                        width="1200" height="900"
-                        alt="Completed modular transport project, photo 8"
-                        loading="lazy" decoding="async">
-                    </button>
+                    <span class="media-label">PROJECT VIDEO</span>
+                    <video controls muted playsinline loop preload="metadata" width="720" height="720" aria-label="To the Move 08">
+                      <source src="/videos/the-move08.mp4" type="video/mp4">
+                      Your browser does not support HTML video.
+                    </video>
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Completed Project 08</h3>
-                  </div>
+                  <div class="carousel-caption"><h3>To the Move 08</h3></div>
                 </div>
               </article>
-
-            </div>
-          </div>
-
+          </div></div>
           <div class="carousel-controls">
-            <button class="carousel-arrow" type="button"
-              data-prev aria-label="Previous project photos">
-              &#8592;
-            </button>
-
-            <div class="carousel-dots" data-dots
-              aria-label="Choose a photo slide"></div>
-
-            <span class="carousel-status" data-status
-              aria-live="polite">1 / 8</span>
-
-            <button class="carousel-arrow" type="button"
-              data-next aria-label="Next project photos">
-              &#8594;
-            </button>
+            <button class="carousel-arrow" type="button" data-prev aria-label="Previous To the Move items">&#8592;</button>
+            <div class="carousel-dots" data-dots aria-label="Choose a To the Move slide"></div>
+            <span class="carousel-status" data-status aria-live="polite">1 / 8</span>
+            <button class="carousel-arrow" type="button" data-next aria-label="Next To the Move items">&#8594;</button>
           </div>
+          <p class="swipe-hint">Swipe to explore the gallery, or use the arrows.</p>
+        </div>
+      </div>
+    </section>
 
-          <p class="swipe-hint">
-            Swipe to explore more photos, or use the arrows.
-          </p>
+    <section class="section carousel-section" id="the-finish" aria-labelledby="the-finish-title">
+      <div class="container">
+        <header class="section-heading">
+          <span class="eyebrow">The Final Result</span>
+          <h2 id="the-finish-title">To the Finished Project</h2>
+          <p>Explore the completed projects and the finished results.</p>
+        </header>
+        <div class="carousel" data-carousel="the-finish" aria-roledescription="carousel" aria-label="To the Finished Project gallery" tabindex="0">
+          <div class="carousel-viewport"><div class="carousel-track">
+              <article class="carousel-slide">
+                <div class="carousel-card photo-card">
+                  <div class="carousel-media">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-finish1.webp" data-title="To the Finished Project 01" aria-label="Enlarge photo To the Finished Project 01">
+                      <img src="/images/projects/the-finish1.webp" width="1000" height="1000" alt="CA Modular Transport project photo 1 in To the Finished Project" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                  <div class="carousel-caption"><h3>To the Finished Project 01</h3></div>
+                </div>
+              </article>
+
+              <article class="carousel-slide">
+                <div class="carousel-card photo-card">
+                  <div class="carousel-media">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-finish2.webp" data-title="To the Finished Project 02" aria-label="Enlarge photo To the Finished Project 02">
+                      <img src="/images/projects/the-finish2.webp" width="1000" height="1000" alt="CA Modular Transport project photo 2 in To the Finished Project" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                  <div class="carousel-caption"><h3>To the Finished Project 02</h3></div>
+                </div>
+              </article>
+
+              <article class="carousel-slide">
+                <div class="carousel-card photo-card">
+                  <div class="carousel-media">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-finish3.webp" data-title="To the Finished Project 03" aria-label="Enlarge photo To the Finished Project 03">
+                      <img src="/images/projects/the-finish3.webp" width="1000" height="1000" alt="CA Modular Transport project photo 3 in To the Finished Project" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                  <div class="carousel-caption"><h3>To the Finished Project 03</h3></div>
+                </div>
+              </article>
+
+              <article class="carousel-slide">
+                <div class="carousel-card photo-card">
+                  <div class="carousel-media">
+                    <button class="photo-open" type="button" data-full="/images/projects/the-finish4.webp" data-title="To the Finished Project 04" aria-label="Enlarge photo To the Finished Project 04">
+                      <img src="/images/projects/the-finish4.webp" width="1000" height="1000" alt="CA Modular Transport project photo 4 in To the Finished Project" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                  <div class="carousel-caption"><h3>To the Finished Project 04</h3></div>
+                </div>
+              </article>
+
+              <article class="carousel-slide">
+                <div class="carousel-card video-card">
+                  <div class="carousel-media">
+                    <span class="media-label">PROJECT VIDEO</span>
+                    <video controls muted playsinline loop preload="metadata" width="720" height="720" aria-label="To the Finished Project 05">
+                      <source src="/videos/the-finish05.mp4" type="video/mp4">
+                      Your browser does not support HTML video.
+                    </video>
+                  </div>
+                  <div class="carousel-caption"><h3>To the Finished Project 05</h3></div>
+                </div>
+              </article>
+
+              <article class="carousel-slide">
+                <div class="carousel-card video-card">
+                  <div class="carousel-media">
+                    <span class="media-label">PROJECT VIDEO</span>
+                    <video controls muted playsinline loop preload="metadata" width="720" height="720" aria-label="To the Finished Project 06">
+                      <source src="/videos/the-finish06.mp4" type="video/mp4">
+                      Your browser does not support HTML video.
+                    </video>
+                  </div>
+                  <div class="carousel-caption"><h3>To the Finished Project 06</h3></div>
+                </div>
+              </article>
+          </div></div>
+          <div class="carousel-controls">
+            <button class="carousel-arrow" type="button" data-prev aria-label="Previous To the Finished Project items">&#8592;</button>
+            <div class="carousel-dots" data-dots aria-label="Choose a To the Finished Project slide"></div>
+            <span class="carousel-status" data-status aria-live="polite">1 / 6</span>
+            <button class="carousel-arrow" type="button" data-next aria-label="Next To the Finished Project items">&#8594;</button>
+          </div>
+          <p class="swipe-hint">Swipe to explore the gallery, or use the arrows.</p>
         </div>
       </div>
     </section>
@@ -1162,24 +1106,17 @@
   <script>
     (() => {
       "use strict";
-
-      /* ======================================
-         INDEPENDENT VIDEO AND PHOTO CAROUSELS
-      ====================================== */
       const carousels = document.querySelectorAll("[data-carousel]");
 
       carousels.forEach((carousel) => {
         const viewport = carousel.querySelector(".carousel-viewport");
         const track = carousel.querySelector(".carousel-track");
-        const slides = Array.from(
-          track.querySelectorAll(".carousel-slide")
-        );
+        const slides = Array.from(track.querySelectorAll(".carousel-slide"));
         const previousButton = carousel.querySelector("[data-prev]");
         const nextButton = carousel.querySelector("[data-next]");
         const dotsContainer = carousel.querySelector("[data-dots]");
         const status = carousel.querySelector("[data-status]");
-
-        if (!viewport || !track || slides.length === 0) return;
+        if (!viewport || !track || !slides.length) return;
 
         let currentIndex = 0;
         let visibleCount = 1;
@@ -1188,178 +1125,96 @@
         let startY = 0;
         let pointerDown = false;
 
-        const getVisibleCount = () =>
-          window.matchMedia("(min-width: 760px)").matches ? 2 : 1;
-
+        const getVisibleCount = () => window.matchMedia("(min-width: 760px)").matches ? 2 : 1;
+        const pauseAllVideos = () => slides.forEach(slide => {
+          const video = slide.querySelector("video");
+          if (video) video.pause();
+        });
+        const syncVideos = () => {
+          slides.forEach((slide, index) => {
+            const video = slide.querySelector("video");
+            if (!video) return;
+            const visible = index >= currentIndex && index < currentIndex + visibleCount;
+            if (visible) {
+              video.muted = true;
+              const playAttempt = video.play();
+              if (playAttempt && typeof playAttempt.catch === "function") playAttempt.catch(() => {});
+            } else {
+              video.pause();
+              try { video.currentTime = 0; } catch (_) {}
+            }
+          });
+        };
         const createDots = () => {
           dotsContainer.replaceChildren();
-
           slides.forEach((slide, index) => {
             const dot = document.createElement("button");
-
             dot.type = "button";
             dot.className = "carousel-dot";
-            dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
-            dot.addEventListener("click", () => {
-              goTo(index);
-            });
-
+            dot.setAttribute("aria-label", `Go to item ${index + 1}`);
+            dot.addEventListener("click", () => goTo(index));
             dotsContainer.append(dot);
           });
         };
-
-        const getStepSize = () => {
-          if (slides.length < 2) {
-            return slides[0].getBoundingClientRect().width;
-          }
-
-          return slides[1].offsetLeft - slides[0].offsetLeft;
-        };
-
+        const getStepSize = () => slides.length < 2 ? slides[0].getBoundingClientRect().width : slides[1].offsetLeft - slides[0].offsetLeft;
         const update = () => {
           visibleCount = getVisibleCount();
           maxIndex = Math.max(0, slides.length - visibleCount);
           currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
-
-          const step = getStepSize();
-          track.style.transform =
-            `translateX(${-currentIndex * step}px)`;
-
+          track.style.transform = `translateX(${-currentIndex * getStepSize()}px)`;
           previousButton.disabled = currentIndex === 0;
           nextButton.disabled = currentIndex === maxIndex;
-
           const dots = dotsContainer.querySelectorAll(".carousel-dot");
-
           dots.forEach((dot, index) => {
-            const isActive = index === currentIndex;
-            dot.setAttribute("aria-current", String(isActive));
-            dot.tabIndex = isActive ? 0 : -1;
+            dot.setAttribute("aria-current", String(index === currentIndex));
+            dot.tabIndex = index === currentIndex ? 0 : -1;
             dot.hidden = index > maxIndex;
           });
-
-          status.textContent =
-            `${currentIndex + 1} / ${maxIndex + 1}`;
-
-          /* Pause videos that are no longer visible. */
-          slides.forEach((slide, index) => {
-            const video = slide.querySelector("video");
-
-            if (
-              video &&
-              (index < currentIndex ||
-                index >= currentIndex + visibleCount)
-            ) {
-              video.pause();
-            }
-          });
+          status.textContent = `${currentIndex + 1} / ${maxIndex + 1}`;
+          syncVideos();
         };
-
-        const goTo = (index) => {
-          currentIndex = Math.max(0, Math.min(index, maxIndex));
-          update();
-        };
-
-        previousButton.addEventListener("click", () => {
-          goTo(currentIndex - 1);
-        });
-
-        nextButton.addEventListener("click", () => {
-          goTo(currentIndex + 1);
-        });
-
-        /* Support touch and pointer swiping. */
-        viewport.addEventListener("pointerdown", (event) => {
+        const goTo = index => { currentIndex = Math.max(0, Math.min(index, maxIndex)); update(); };
+        previousButton.addEventListener("click", () => goTo(currentIndex - 1));
+        nextButton.addEventListener("click", () => goTo(currentIndex + 1));
+        viewport.addEventListener("pointerdown", event => {
           if (event.pointerType === "mouse") return;
-
-          pointerDown = true;
-          startX = event.clientX;
-          startY = event.clientY;
+          pointerDown = true; startX = event.clientX; startY = event.clientY;
         });
-
-        viewport.addEventListener("pointerup", (event) => {
+        viewport.addEventListener("pointerup", event => {
           if (!pointerDown) return;
           pointerDown = false;
-
-          const dx = event.clientX - startX;
-          const dy = event.clientY - startY;
-
-          /* Ignore taps on video controls and vertical scrolling. */
-          if (
-            Math.abs(dx) < 45 ||
-            Math.abs(dx) < Math.abs(dy) * 1.2
-          ) {
-            return;
-          }
-
+          const dx = event.clientX - startX, dy = event.clientY - startY;
+          if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
           goTo(currentIndex + (dx < 0 ? 1 : -1));
         });
-
-        viewport.addEventListener("pointercancel", () => {
-          pointerDown = false;
+        viewport.addEventListener("pointercancel", () => { pointerDown = false; });
+        carousel.addEventListener("keydown", event => {
+          if (event.target instanceof HTMLVideoElement || event.target instanceof HTMLButtonElement) return;
+          if (event.key === "ArrowLeft") goTo(currentIndex - 1);
+          if (event.key === "ArrowRight") goTo(currentIndex + 1);
         });
-
-        carousel.addEventListener("keydown", (event) => {
-          if (
-            event.target instanceof HTMLVideoElement ||
-            event.target instanceof HTMLButtonElement
-          ) {
-            return;
-          }
-
-          if (event.key === "ArrowLeft") {
-            goTo(currentIndex - 1);
-          } else if (event.key === "ArrowRight") {
-            goTo(currentIndex + 1);
-          }
-        });
-
         createDots();
         update();
-
-        /* Keep both carousels correctly positioned on resize. */
         window.addEventListener("resize", update);
       });
 
-      /* ======================================
-         PHOTO LIGHTBOX
-      ====================================== */
       const lightbox = document.getElementById("photo-lightbox");
       const lightboxImage = document.getElementById("lightbox-image");
       const lightboxTitle = document.getElementById("lightbox-title");
       const closeButton = document.getElementById("lightbox-close");
-
-      document.querySelectorAll(".photo-open").forEach((button) => {
+      document.querySelectorAll(".photo-open").forEach(button => {
         button.addEventListener("click", () => {
           const image = button.querySelector("img");
-
           lightboxImage.src = button.dataset.full;
           lightboxImage.alt = image ? image.alt : "";
-          lightboxTitle.textContent =
-            button.dataset.title || "Project photo";
-
-          if (typeof lightbox.showModal === "function") {
-            lightbox.showModal();
-          }
+          lightboxTitle.textContent = button.dataset.title || "Project photo";
+          if (typeof lightbox.showModal === "function") lightbox.showModal();
         });
       });
-
-      closeButton.addEventListener("click", () => {
-        lightbox.close();
-      });
-
-      lightbox.addEventListener("click", (event) => {
-        if (event.target === lightbox) {
-          lightbox.close();
-        }
-      });
-
-      lightbox.addEventListener("close", () => {
-        lightboxImage.removeAttribute("src");
-      });
-
-      /* Automatically update the footer year. */
-      document.getElementById("current-year").textContent =
-        new Date().getFullYear();
+      closeButton.addEventListener("click", () => lightbox.close());
+      lightbox.addEventListener("click", event => { if (event.target === lightbox) lightbox.close(); });
+      lightbox.addEventListener("close", () => lightboxImage.removeAttribute("src"));
+      document.getElementById("current-year").textContent = new Date().getFullYear();
     })();
   </script>
 </body>
