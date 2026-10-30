@@ -510,19 +510,22 @@
     }
 
     .carousel-dot {
-      width: 11px;
+      /* Keep the layout width fixed; animate only transform and color. */
+      flex: 0 0 28px;
+      width: 28px;
       height: 11px;
       padding: 0;
       border: 0;
-      border-radius: 50%;
-      background: #c7c7c7;
+      border-radius: 999px;
+      background: #666666;
       cursor: pointer;
-      transition: width 180ms ease, background 180ms ease;
+      transform: scaleX(0.393);
+      transition: transform 180ms ease, background-color 180ms ease;
     }
 
     .carousel-dot[aria-current="true"] {
-      width: 28px;
-      border-radius: 999px;
+      transform: scaleX(1);
+      border: 2px solid var(--black);
       background: var(--yellow-dark);
     }
 
@@ -547,7 +550,7 @@
     .contact-section {
       padding-block: 76px;
       background: var(--blue-gray);
-      color: var(--white);
+      color: var(--black);
     }
 
     .contact-inner {
@@ -838,7 +841,7 @@
                 <div class="carousel-card video-card">
                   <div class="carousel-media">
                     <span class="media-label">PROJECT VIDEO</span>
-                    <video controls muted playsinline loop preload="metadata" width="720" height="720" aria-label="From the Start 04">
+                    <video controls muted playsinline loop preload="none" width="720" height="720" aria-label="From the Start 04">
                       <source src="/videos/the-start04.mp4" type="video/mp4">
                       Your browser does not support HTML video.
                     </video>
@@ -937,7 +940,7 @@
                 <div class="carousel-card video-card">
                   <div class="carousel-media">
                     <span class="media-label">PROJECT VIDEO</span>
-                    <video controls muted playsinline loop preload="metadata" width="720" height="720" aria-label="To the Move 07">
+                    <video controls muted playsinline loop preload="none" width="720" height="720" aria-label="To the Move 07">
                       <source src="/videos/the-move07.mp4" type="video/mp4">
                       Your browser does not support HTML video.
                     </video>
@@ -950,7 +953,7 @@
                 <div class="carousel-card video-card">
                   <div class="carousel-media">
                     <span class="media-label">PROJECT VIDEO</span>
-                    <video controls muted playsinline loop preload="metadata" width="720" height="720" aria-label="To the Move 08">
+                    <video controls muted playsinline loop preload="none" width="720" height="720" aria-label="To the Move 08">
                       <source src="/videos/the-move08.mp4" type="video/mp4">
                       Your browser does not support HTML video.
                     </video>
@@ -1027,7 +1030,7 @@
                 <div class="carousel-card video-card">
                   <div class="carousel-media">
                     <span class="media-label">PROJECT VIDEO</span>
-                    <video controls muted playsinline loop preload="metadata" width="720" height="720" aria-label="To the Finished Project 05">
+                    <video controls muted playsinline loop preload="none" width="720" height="720" aria-label="To the Finished Project 05">
                       <source src="/videos/the-finish05.mp4" type="video/mp4">
                       Your browser does not support HTML video.
                     </video>
@@ -1040,7 +1043,7 @@
                 <div class="carousel-card video-card">
                   <div class="carousel-media">
                     <span class="media-label">PROJECT VIDEO</span>
-                    <video controls muted playsinline loop preload="metadata" width="720" height="720" aria-label="To the Finished Project 06">
+                    <video controls muted playsinline loop preload="none" width="720" height="720" aria-label="To the Finished Project 06">
                       <source src="/videos/the-finish06.mp4" type="video/mp4">
                       Your browser does not support HTML video.
                     </video>
@@ -1100,7 +1103,7 @@
         &times;
       </button>
     </div>
-    <img id="lightbox-image" src="" alt="">
+    <img id="lightbox-image" src="" alt="" width="1000" height="1000">
   </dialog>
 
   <script>
@@ -1126,25 +1129,48 @@
         let pointerDown = false;
 
         const getVisibleCount = () => window.matchMedia("(min-width: 760px)").matches ? 2 : 1;
-        const pauseAllVideos = () => slides.forEach(slide => {
-          const video = slide.querySelector("video");
-          if (video) video.pause();
-        });
+        const intersectingVideos = new WeakSet();
+        const videoObserver = "IntersectionObserver" in window
+          ? new IntersectionObserver(entries => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  intersectingVideos.add(entry.target);
+                } else {
+                  intersectingVideos.delete(entry.target);
+                  entry.target.pause();
+                }
+              });
+              syncVideos();
+            }, { threshold: 0.25 })
+          : null;
+
         const syncVideos = () => {
           slides.forEach((slide, index) => {
             const video = slide.querySelector("video");
             if (!video) return;
-            const visible = index >= currentIndex && index < currentIndex + visibleCount;
-            if (visible) {
+            const isActiveSlide = index >= currentIndex && index < currentIndex + visibleCount;
+            const isActuallyVisible = intersectingVideos.has(video);
+            if (isActiveSlide && isActuallyVisible) {
               video.muted = true;
               const playAttempt = video.play();
-              if (playAttempt && typeof playAttempt.catch === "function") playAttempt.catch(() => {});
+              if (playAttempt && typeof playAttempt.catch === "function") {
+                playAttempt.catch(() => {});
+              }
             } else {
               video.pause();
-              try { video.currentTime = 0; } catch (_) {}
+              if (!isActiveSlide) {
+                try { video.currentTime = 0; } catch (_) {}
+              }
             }
           });
         };
+
+        if (videoObserver) {
+          slides.forEach(slide => {
+            const video = slide.querySelector("video");
+            if (video) videoObserver.observe(video);
+          });
+        }
         const createDots = () => {
           dotsContainer.replaceChildren();
           slides.forEach((slide, index) => {
